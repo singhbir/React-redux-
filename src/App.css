@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
 .App {
   text-align: center;
 }
@@ -35,4 +37,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.gbutton{
+margin-top:10%;  
+border: 2px solid black !important;
+}
+.typ{
+  color:#FF5252;
+  margin-top: 10%;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 40px !important;
+}
+.ntext{
+  margin-left: 75% !important;
+  margin-right: none !important;
+}
+tr:hover{
+
 }
