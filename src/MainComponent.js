@@ -38,10 +38,8 @@ function MainComponent(props) {
   const [email,setEmail] = useState("");
   const [prod,setProd] = useState("");
   const [quan,setQuan] =useState();
-  
- 
-  
-
+  const [m,setm] = useState(true)
+  const [ns,sns] = useState("")
 
   const handleEvents = (event,value) => {
     switch(value){
@@ -68,13 +66,24 @@ const handleSubmit = (event) =>{
   event.preventDefault()
 }
 
-
+const handleUpdate = (event) => {
+  sns(props.data.map((d)=>{
+    if(d.id === id){
+      d.id=id;
+      d.customer_name = name;
+      d.customer_email = email;
+      d.product = prod;
+      d.quantity = quan;
+    }
+  }))
+  event.preventDefault()
+}
 
 return (
     <div className="App">
     <Navs uname={props.username} upic={props.userpic} uemail={props.useremail}/>
-    <Form >
-      <Table responsive>
+    <Form> 
+       <Table responsive>
       <thead>
         <tr>
           <th>#</th>
@@ -98,7 +107,8 @@ return (
         </td>
         <td>
            <Input type="select" value={prod}  placeholder="Product" onChange={(event) => handleEvents(event,"PRODUCT")}>
-           <option>Product 1</option>
+           <option>SELECT PRODUCT</option>
+           <option >Product 1</option>
            <option>Product 2</option>
            <option>Product 3</option> 
            </Input> 
@@ -108,8 +118,8 @@ return (
            <br/>
         </td>
         <td>
-           <Button onClick={(event)=>handleSubmit(event)} color="primary">ADD ITEM</Button>
-             
+           <Button onClick={(event)=>handleSubmit(event)} color="primary">ADD ITEM</Button>{" "}
+            <Button color="primary" onClick={(event)=>handleUpdate(event)}>UPDATE</Button> 
         </td>
       </tr>
         {props.data.map((d) => {
@@ -119,11 +129,14 @@ return (
             <td>{d.customer_email}</td>
             <td>{d.product}</td>
             <td>{d.quantity}</td>
-            <td><Button>Update</Button>{" "}<Button type="submit" onClick={()=>props.onDelItem(d.id)} title="CLICK TO DELETE ME">Delete</Button></td>
-          </tr>)})}
+            <td><Button onClick={()=>props.onDelItem(d.id)} title="CLICK TO DELETE ME">Delete</Button></td>
+            </tr>)})}
+            
       </tbody>
     </Table>
     </Form>
+    
+    
     </div>
   );
 

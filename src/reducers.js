@@ -11,7 +11,7 @@ export const reducer = (state = initialState, action ) =>{
             console.log("i am clicked")
             return{
                 ...state,
-                data:state.data.concat(action.value)
+                data:[action.value].concat(state.data)
             }
             break;
         case "DEL_ITEM":
