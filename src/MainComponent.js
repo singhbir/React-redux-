@@ -67,6 +67,7 @@ const handleSubmit = (event) =>{
 }
 
 const handleUpdate = (event) => {
+  let flag = 0;
   sns(props.data.map((d)=>{
     if(d.id === id){
       d.id=id;
@@ -74,8 +75,13 @@ const handleUpdate = (event) => {
       d.customer_email = email;
       d.product = prod;
       d.quantity = quan;
+      flag = 1; 
     }
+    
   }))
+  if (flag==0){
+    alert("No data found ")
+  }
   event.preventDefault()
 }
 
