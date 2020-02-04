@@ -18,7 +18,14 @@ const mapDispachToProps = dispatch =>{
                                                     "customer_name":name,
                                                     "customer_email":email,
                                                     "product":prod,
-                                                    "quantity":quan}})
+                                                    "quantity":quan}}),
+    onEditItem:(id,name,email,prod,quan) => dispatch({type:"UPDATE_ITEM", value:{"id":id,
+                                                                    "customer_name":name,
+                                                                    "customer_email":email,
+                                                                    "product":prod,
+                                                                    "quantity":quan
+                                                                    }
+                                                      })
   }
 }
 
@@ -75,6 +82,7 @@ return (
           <th> email</th>
           <th> product</th>
           <th> quantity</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -98,17 +106,20 @@ return (
         <td>
            <Input type="number" step="1"  placeholder="Quantity" onChange={(event) => handleEvents(event,"QUANTITY")}/>
            <br/>
+        </td>
+        <td>
            <Button onClick={(event)=>handleSubmit(event)} color="primary">ADD ITEM</Button>
              
         </td>
       </tr>
         {props.data.map((d) => {
-          return(<tr onClick={()=>props.onDelItem(d.id)} title="CLICK TO DELETE ME">
+          return(<tr>
             <th scope="row">{d.id}</th>
             <td>{d.customer_name}</td>
             <td>{d.customer_email}</td>
             <td>{d.product}</td>
             <td>{d.quantity}</td>
+            <td><Button>Update</Button>{" "}<Button type="submit" onClick={()=>props.onDelItem(d.id)} title="CLICK TO DELETE ME">Delete</Button></td>
           </tr>)})}
       </tbody>
     </Table>
