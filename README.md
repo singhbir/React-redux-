@@ -5,6 +5,5 @@
 
 Some Points:
 
-1. Delete the Item by clicking on it 
-
-2. New Entry is Added At the buttom  
+1. For updating :
+    enter the id and then the updated data 😁
