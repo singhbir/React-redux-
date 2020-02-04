@@ -118,9 +118,10 @@ return (
            <br/>
         </td>
         <td>
-           <Button onClick={(event)=>handleSubmit(event)} color="primary">ADD ITEM</Button>{" "}
-            <Button color="primary" onClick={(event)=>handleUpdate(event)}>UPDATE</Button> 
+           <Button onClick={(event)=>handleSubmit(event)} color="primary">ADDITEM</Button>{" "}<br/>
+           <Button color="primary" onClick={(event)=>handleUpdate(event)} title="enter the id and data" style={{"marginTop":'2px'}}>UPDATE</Button>
         </td>
+       
       </tr>
         {props.data.map((d) => {
           return(<tr>
